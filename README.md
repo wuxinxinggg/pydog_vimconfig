@@ -18,14 +18,13 @@ vim-config
 
 `CSApprox.vim` 这是一个vim配色的插件，我比较喜欢desert这个配色。
 
-`OmniCppComplete.vim` 用于代码补全工作，能够加快[效果](/assets/post/2014-03-19-vim/vim_omni.png)
+`OmniCppComplete.vim` 用于代码补全工作，能够加快效率
 
-
-`ctrlp.vim` 用于文件的模糊搜索，能够加快打开文件的速度[效果](/assets/post/2014-03-19-vim/vim_ctrlp.png)
+`ctrlp.vim` 用于文件的模糊搜索，能够加快打开文件的速度
 
 `powerline.vim` 一个优雅的状态栏插件
 
-`vimgrep` 自带插件，用于搜索tags中匹配字符，[效果](/assets/post/2014-03-19-vim/vim_grep.png)
+`vimgrep` 自带插件，用于搜索tags中匹配字符，
 
 `supertab.vim`tab后，可以查看doc、补全代码
 
