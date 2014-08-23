@@ -33,6 +33,10 @@ set fileencodings=utf-8,chinese,latin-1
 set tags+=~/.vim/tags/cpp
 set tags+=./vimtags
 
+"Map key of switching between buffer
+map <tab> :bn<cr>
+map <s-tab> :bp<cr>
+
 "Highlight current line
 "GUI Mode
 "
