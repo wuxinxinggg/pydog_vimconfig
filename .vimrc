@@ -58,15 +58,26 @@ set hls
 "               cscope setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("cscope")
-  set csprg=/usr/bin/cscope
-  set csto=1
-  set cst
-  set nocsverb
-  " add any database in current directory
-  if filereadable("cscope.out")
-      cs add cscope.out
-  endif
-  set csverb
+    set csprg=/usr/bin/cscope
+
+    "search cscope file first,then tags file ,if csto=1, reversed
+    set csto=0
+
+    "search in both  tags files and cscope 
+    set cst 
+
+    "no verbose if add cscope database failed!
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+
+    "no verbose if add cscope database failed!
+    set csverb
 endif
 
 nmap <C-e>s :cs find s <C-R>=expand("<cword>")<CR><CR>
