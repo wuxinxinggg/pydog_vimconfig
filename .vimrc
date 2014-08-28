@@ -28,7 +28,8 @@ set t_Co=256
 colorscheme desert
 filetype plugin indent on
 syntax on
-set fileencodings=utf-8,chinese,latin-1
+"set fileencodings=utf-8,chinese,latin-1
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 "configure tags - add additional tags here or comment out not-used ones
 "set tags+=~/.vim/tags/cpp
 "set tags+=./vimtags
