@@ -30,8 +30,8 @@ filetype plugin indent on
 syntax on
 set fileencodings=utf-8,chinese,latin-1
 "configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-set tags+=./vimtags
+"set tags+=~/.vim/tags/cpp
+"set tags+=./vimtags
 
 "Map key of switching between buffer
 map <tab> :bn<cr>
@@ -113,8 +113,6 @@ let mapleader=","
 "map <C-l> :TlistToggle<CR>
 "map <C-l> :Tlist<CR>
 
-" build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q.<CR>
 
 
 "automatically open and close the popup menu / preview window
@@ -155,13 +153,22 @@ nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
 
+
+
+
+
+
+
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               CtrlP setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "the directory with ctags is the mark of root directory
 let g:ctrlp_root_markers = ['tags']
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'raw'
 
 " Enable cache
 let g:ctrlp_clear_cache_on_exit = 1
@@ -203,6 +210,15 @@ nmap <F9>  :TrinityToggleTagList<CR>
 " Open and close the NERD_tree.vim separately 
 nmap <F10>  :TrinityToggleNERDTree<CR> 
 
+
+
+
+
+
+
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               OmniCppComplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -215,9 +231,40 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               Ctags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" build tags of your own project with Ctrl-F12
+"map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q.<CR>
+map <C-F12> :!ctags -R --sort=yes --c-kinds=+p --fields=+aS --extra=+q<CR>
+
+"back to tag
+map <C-g> :tag<CR>
+
+
+
+
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "       Double tab show Doc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+
+
+
+
+
+
+
+
 
