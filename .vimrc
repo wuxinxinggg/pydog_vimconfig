@@ -42,8 +42,8 @@ map <s-tab> :bp<cr>
 "GUI Mode
 "
 set cursorline
-hi CursorLine  gui=underline,bold,standout guibg=NONE guifg=NONE
-hi CursorColumn gui=underline,bold,standout guibg=NONE guifg=NONE
+hi CursorLine  gui=bold,standout guibg=NONE guifg=NONE
+hi CursorColumn gui=bold,standout guibg=NONE guifg=NONE
 
 "Cterm Mode
 "set cursorline
@@ -91,11 +91,24 @@ nmap <C-e>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-e>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
+
+
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  Marks setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mwAutoLoadMarks = 1
 nmap <C-\> :Mark <C-R>=expand("<cword>")<CR><CR>
+
+
+
+
+
+
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  NerdCommenter setting
@@ -180,24 +193,11 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! QFSwitch()
-	redir => ls_output
-	execute ':silent! ls'
-	redir END
 
-	let exists = match(ls_output, "[Quickfix List")
-	if exists == -1
-		execute ':copen'
-	else
-		execute ':cclose'
-		execute ':TrinityToggleAll'
-		execute ':TrinityToggleAll'
-	endif
-endfunction
 
-map <C-o> <ESC>:call QFSwitch()<CR>
+
+
 
 " Open and close all the three plugins on the same time 
 nmap <F7>   :TrinityToggleAll<CR> 
