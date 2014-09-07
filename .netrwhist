@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/pydog/.vim/bundle'
 let g:netrw_dirhist_2='/home/pydog/code/u-boot_for_ok2440'
 let g:netrw_dirhist_3='/home/pydog/.vim/bundle/ctrlp.vim'
 let g:netrw_dirhist_4='/home/pydog/code/u-boot_for_ok2440'
 let g:netrw_dirhist_5='/home/pydog/code'
 let g:netrw_dirhist_6='/home/pydog/.vim/bundle/mark.vim'
+let g:netrw_dirhist_7='/home/pydog'
+let g:netrw_dirhist_8='/home/pydog/.vim/bundle/vim-colors-solarized'
+let g:netrw_dirhist_9='/home/pydog'

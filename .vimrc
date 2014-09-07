@@ -1,5 +1,9 @@
 set nocp
 set nocompatible
+
+"插件安装管理
+call pathogen#infect()
+
 "设置行号
 set number
 set showmatch
@@ -23,12 +27,22 @@ set softtabstop=4
 set cindent                           
 set nobackup                       
 set clipboard+=unnamed
-" set fdm=syntax "代码折叠
-set t_Co=256
-colorscheme desert
+
+" C和C++文件代码自动折叠
+autocmd FileType c,cpp  setl fdm=syntax | setl fen 
+
 filetype plugin indent on
 syntax on
+
+set t_Co=256
+"let g:solarized_termcolors=16
+set background=dark
+"set background=light
+colorscheme solarized
+"colorscheme desert
+
 "set fileencodings=utf-8,chinese,latin-1
+set fenc=gb2312
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 "configure tags - add additional tags here or comment out not-used ones
 "set tags+=~/.vim/tags/cpp
@@ -54,6 +68,9 @@ hi CursorColumn gui=bold,standout guibg=NONE guifg=NONE
 
 "Highlight search result
 set hls
+
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               cscope setting
@@ -139,9 +156,6 @@ if has("autocmd")
 	au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
 endif
 
-"插件安装管理
-call pathogen#infect()
-
 "文件打开插件
 "map <C-t> :NERDTreeMirror<CR>
 "map <C-t> :NERDTreeToggle<CR>
@@ -173,11 +187,8 @@ nmap <C-L> <C-W>l
 
 
 
-
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               CtrlP setting
+"                   CtrlP setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "the directory with ctags is the mark of root directory
@@ -217,11 +228,8 @@ nmap <F10>  :TrinityToggleNERDTree<CR>
 
 
 
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               OmniCppComplete
+"                   OmniCppComplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -239,9 +247,8 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               Ctags
+"                   Ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " build tags of your own project with Ctrl-F12
 "map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q.<CR>
 map <C-F12> :!ctags -R --sort=yes --c-kinds=+p --fields=+aS --extra=+q<CR>
@@ -256,12 +263,36 @@ map <C-g> :tag<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"       Double tab show Doc
+"                   Double tab show Doc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   showmarks setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable ShowMarks
+let showmarks_enable = 1
+" Show which marks
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" Ignore help, quickfix, non-modifiable buffers
+let showmarks_ignore_type = "hqm"
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 0
+let showmarks_hlline_upper = 0 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   markbrowser setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <leader>mk :MarksBrowser<cr> 
 
 
 
