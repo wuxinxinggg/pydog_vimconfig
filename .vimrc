@@ -1,5 +1,6 @@
 set nocp
 set nocompatible
+syntax on
 
 "插件安装管理
 call pathogen#infect()
@@ -28,12 +29,26 @@ set cindent
 set nobackup                       
 set clipboard+=unnamed
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               Filetype setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
+
 " C和C++文件代码自动折叠
 autocmd FileType c,cpp  setl fdm=syntax | setl fen 
 
-filetype plugin indent on
-syntax on
 
+
+
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               colorscheme setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
@@ -231,14 +246,14 @@ nmap <F10>  :TrinityToggleNERDTree<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   OmniCppComplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 
 
@@ -251,10 +266,10 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " build tags of your own project with Ctrl-F12
 "map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q.<CR>
-map <C-F12> :!ctags -R --sort=yes --c-kinds=+p --fields=+aS --extra=+q<CR>
+"map <C-F12> :!ctags -R --sort=yes --c-kinds=+p --fields=+aS --extra=+q<CR>
 
 "back to tag
-map <C-g> :tag<CR>
+"map <C-g> :tag<CR>
 
 
 
@@ -265,8 +280,8 @@ map <C-g> :tag<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Double tab show Doc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
 
 
 
@@ -299,4 +314,52 @@ nmap <silent> <leader>mk :MarksBrowser<cr>
 
 
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   YouCompleteMe setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准  
+let g:ycm_error_symbol='>>'  
+let g:ycm_warning_symbol='>*'
+
+"设置跳转的快捷键，可以跳转到definition和declaration  
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
+"nmap <F4> :YcmDiags<CR> 
+"开启基于tag的补全，可以在这之后添加需要的标签路径
+let g:ycm_collect_identifiers_from_tags_files = 1
+"开启语义补全  
+let g:ycm_seed_identifiers_with_syntax = 1  
+"在接受补全后不分裂出一个窗口显示接受的项  
+set completeopt-=preview  
+"不显示开启vim时检查ycm_extra_conf文件的信息  
+let g:ycm_confirm_extra_conf=0  
+"每次重新生成匹配项，禁止缓存匹配项  
+let g:ycm_cache_omnifunc=0  
+"在注释中也可以补全  
+let g:ycm_complete_in_comments=1  
+
+" 引入，可以补全系统，以及python的第三方包
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
+"直接触发自动补全
+let g:ycm_key_invoke_completion = ''
+    
+"不要使用syntastic检查，不然很gcc编译的工程会很慢
+let g:ycm_register_as_syntastic_checker = 0
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   POWerLine setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+let Powerline_symbols='compatible'
 
