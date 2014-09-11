@@ -56,6 +56,20 @@ set background=dark
 colorscheme solarized
 "colorscheme desert
 
+"Highlight current line
+if has('gui_running')
+"GUI Mode
+set cursorline
+hi CursorLine  gui=bold,standout guibg=NONE guifg=NONE
+hi CursorColumn gui=bold,standout guibg=NONE guifg=NONE
+else
+"Cterm Mode
+set cursorline
+hi CursorLine  cterm=underline,bold,standout ctermbg=NONE    ctermfg=NONE
+hi CursorColumn cterm=underline,bold,standout ctermbg=NONE   ctermfg=NONE
+endif
+"End Highlight current line
+
 "set fileencodings=utf-8,chinese,latin-1
 set fenc=gb2312
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -63,66 +77,9 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 "set tags+=~/.vim/tags/cpp
 "set tags+=./vimtags
 
-"Map key of switching between buffer
-map <tab> :bn<cr>
-map <s-tab> :bp<cr>
-
-"Highlight current line
-"GUI Mode
-"
-set cursorline
-hi CursorLine  gui=bold,standout guibg=NONE guifg=NONE
-hi CursorColumn gui=bold,standout guibg=NONE guifg=NONE
-
-"Cterm Mode
-"set cursorline
-"hi CursorLine  cterm=underline,bold ctermbg=darkred ctermfg=white
-"hi CursorColumn cterm=underline,bold ctermbg=darkred ctermfg=white
-"
-"End Highlight current line
 
 "Highlight search result
 set hls
-
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               cscope setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-    set csprg=/usr/bin/cscope
-
-    "search cscope file first,then tags file ,if csto=1, reversed
-    set csto=0
-
-    "search in both  tags files and cscope 
-    set cst 
-
-    "no verbose if add cscope database failed!
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-
-    "no verbose if add cscope database failed!
-    set csverb
-endif
-
-nmap <C-e>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-e>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-e>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-e>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-e>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-e>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-e>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-e>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-
 
 
 
@@ -164,12 +121,6 @@ let mapleader=","
 "automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest
-
-"插入模式下方框变成光标
-if has("autocmd")
-	au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-	au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-endif
 
 "文件打开插件
 "map <C-t> :NERDTreeMirror<CR>
@@ -253,27 +204,6 @@ nmap <F10>  :TrinityToggleNERDTree<CR>
 
 
 
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                   OmniCppComplete
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-
-
-
-
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -284,17 +214,6 @@ nmap <F10>  :TrinityToggleNERDTree<CR>
 "back to tag
 "map <C-g> :tag<CR>
 
-
-
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                   Double tab show Doc
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:SuperTabDefaultCompletionType = "context"
-"set completeopt=menuone,longest,preview
 
 
 
@@ -375,4 +294,7 @@ set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
 let Powerline_symbols='compatible'
+
+
+
 
