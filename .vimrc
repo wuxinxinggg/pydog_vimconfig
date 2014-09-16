@@ -298,3 +298,12 @@ let Powerline_symbols='compatible'
 
 
 
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   octopress-vim setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.markdown setfiletype octopress
+
+
+
