@@ -1,0 +1,63 @@
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git@github.com:majutsushi/tagbar.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "bundle/fencview"]
+	path = bundle/fencview
+	url = git@github.com:mbbill/fencview.git
+[submodule "bundle/ag.vim"]
+	path = bundle/ag.vim
+	url = git@github.com:rking/ag.vim.git
+[submodule "bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "bundle/tmarks_vim"]
+	path = bundle/tmarks_vim
+	url = git@github.com:tomtom/tmarks_vim.git
+[submodule "bundle/vim-markology"]
+	path = bundle/vim-markology
+	url = git@github.com:wuxinxinggg/vim-markology.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "bundle/srcexpl.vim"]
+	path = bundle/srcexpl.vim
+	url = git@github.com:vim-scripts/SrcExpl.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git@github.com:godlygeek/tabular.git
+[submodule "bundle/TagHighlight"]
+	path = bundle/TagHighlight
+	url = git@github.com:teasp00n/TabHighlight.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/tlib-vim"]
+	path = bundle/tlib-vim
+	url = git@github.com:tomtom/tlib_vim.git
+[submodule "bundle/git-nerdtree"]
+	path = bundle/git-nerdtree
+	url = git@github.com:Xuyuanp/git-nerdtree.git
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "bundle/vim-mark"]
+	path = bundle/vim-mark
+	url = git@github.com:dimasg/vim-mark.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = git@github.com:bling/vim-airline.git
+[submodule "bundle/tmuxline.vim"]
+	path = bundle/tmuxline.vim
+	url = git@github.com:edkolev/tmuxline.vim.git
+[submodule "bundle/nerdtree-ag"]
+	path = bundle/nerdtree-ag
+	url = git@github.com:taiansu/nerdtree-ag.git
+[submodule "bundle/vim-octopress"]
+	path = bundle/vim-octopress
+	url = git@github.com:tangledhelix/vim-octopress.git

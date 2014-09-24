@@ -24,6 +24,12 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+map <C-i> :bp<CR>
+map <C-o> :bn<CR>
+
+
+
+
 "设置使用C/C++自动缩进
 set cindent                           
 set nobackup                       
@@ -36,7 +42,6 @@ set clipboard+=unnamed
 filetype plugin indent on
 
 " C和C++文件代码自动折叠
-autocmd FileType c,cpp  setl fdm=syntax | setl fen 
 
 
 
@@ -106,15 +111,6 @@ nmap <C-\> :Mark <C-R>=expand("<cword>")<CR><CR>
 let mapleader=","  
 
 
-" taglist
-"let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
-"let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
-"let Tlist_Inc_Winwidth=0			   "如果在文本界面下运行vim,则将窗口长度设为0
-"let Tlist_Auto_Open=1				   "自动打开Tlist
-"let Tlist_Use_Right_Window=1
-" 设置Tlist快捷键
-"map <C-l> :TlistToggle<CR>
-"map <C-l> :Tlist<CR>
 
 
 
@@ -149,6 +145,14 @@ nmap <C-L> <C-W>l
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Ag setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+
+
+
 
 
 
@@ -170,6 +174,10 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>pt :CtrlPTag<CR>
+nnoremap <leader>pr :CtrlPMRUFiles<CR>
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
     " Use Ag over Grep
@@ -187,19 +195,47 @@ endif
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <F9> :TagbarToggle<CR>
+" autoclose tagbar
+let g:tagbar_autoclose = 1
+
+" autofocus when open tagbar
+let g:tagbar_autofocus = 1
+
+let g:tagbar_left = 1
 
 
-" Open and close all the three plugins on the same time 
-nmap <F7>   :TrinityToggleAll<CR> 
 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   NerdTree-ag setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F10>  :NERDTreeFocus<CR> 
+
+let NERDTreeHighlightCursorline=1
+"打开文件时关闭树
+let NERDTreeQuitOnOpen=1 
+let NERDTreeWinSize=40
+let NERDTreeWinPos = "right"
+
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   SrcExpl.vim setting 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open and close the srcexpl.vim separately 
-nmap <F8>   :TrinityToggleSourceExplorer<CR> 
+nmap <F8>   :SrcExplToggle<CR> 
 
-" Open and close the taglist.vim separately 
-nmap <F9>  :TrinityToggleTagList<CR> 
-
-" Open and close the NERD_tree.vim separately 
-nmap <F10>  :TrinityToggleNERDTree<CR> 
 
 
 
@@ -248,9 +284,15 @@ nmap <silent> <leader>mk :MarksBrowser<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                   YouCompleteMe setting
+"                   vim-multiple-cursors setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   YouCompleteMe setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准  
 let g:ycm_error_symbol='>>'  
 let g:ycm_warning_symbol='>*'
@@ -259,9 +301,9 @@ let g:ycm_warning_symbol='>*'
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
-"nmap <F4> :YcmDiags<CR> 
+nmap <F4> :YcmDiags<CR> 
 "开启基于tag的补全，可以在这之后添加需要的标签路径
-let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
 "开启语义补全  
 let g:ycm_seed_identifiers_with_syntax = 1  
 "在接受补全后不分裂出一个窗口显示接受的项  
@@ -279,21 +321,17 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.p
 let g:ycm_key_invoke_completion = ''
     
 "不要使用syntastic检查，不然很gcc编译的工程会很慢
-let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_register_as_syntastic_checker = 1
 
 
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                   POWerLine setting
+"                   Airline setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
+let g:tmuxline_theme = 'luna'
 set laststatus=2
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-let Powerline_symbols='compatible'
 
 
 
