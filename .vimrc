@@ -330,7 +330,8 @@ let g:ycm_register_as_syntastic_checker = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Airline setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tmuxline_theme = 'luna'
+let g:airline_theme  = 'badwolf'
+let g:tmuxline_theme = 'airline_insert'
 set laststatus=2
 
 
