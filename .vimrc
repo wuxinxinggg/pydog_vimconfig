@@ -400,3 +400,13 @@ nnoremap <Leader>ss :SessionSave<CR>
 nnoremap <Leader>sl :SessionList<CR>
 nnoremap <Leader>sc :SessionClose<CR>
 
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   vim-preview setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>mdp :PreviewMarkdown<CR>
+
