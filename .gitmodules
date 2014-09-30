@@ -64,3 +64,9 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/sessionman.vim"]
+	path = bundle/sessionman.vim
+	url = git@github.com:vim-scripts/sessionman.vim.git
+[submodule "bundle/ctrlsf.vim"]
+	path = bundle/ctrlsf.vim
+	url = git@github.com:dyng/ctrlsf.vim.git

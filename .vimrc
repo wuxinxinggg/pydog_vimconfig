@@ -160,7 +160,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   CtrlP setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 "the directory with ctags is the mark of root directory
 let g:ctrlp_root_markers = ['tags']
 let g:ctrlp_working_path_mode = 'raw'
@@ -171,8 +170,8 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 " map key to run CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
 
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>pt :CtrlPTag<CR>
@@ -189,6 +188,18 @@ if executable('ag')
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching=0
 endif
+
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Ctrlsf setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>sf :CtrlSF -U <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>sfo :CtrlSFOpen<CR>
+let g:ctrlsf_ackprg = 'ag'
 
 
 
@@ -229,7 +240,6 @@ let NERDTreeWinPos = "right"
 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   SrcExpl.vim setting 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,6 +260,39 @@ nmap <F8>   :SrcExplToggle<CR>
 "back to tag
 "map <C-g> :tag<CR>
 
+
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   cscope setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set cscope quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+if has("cscope")
+  set csprg=/usr/bin/cscope
+  set csto=1
+  set cst
+  set nocsverb
+  " add any database in current directory
+  if filereadable("cscope.out")
+      cs add cscope.out
+  endif
+  set csverb
+endif
+
+nmap <Leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>ft :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>ff :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <Leader>fi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <Leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>fw :cw<CR>
 
 
 
@@ -345,4 +388,15 @@ set laststatus=2
 autocmd BufNewFile,BufRead *.markdown setfiletype octopress
 
 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   sessionman-vim setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:sessionman_save_on_exit = 1
+nnoremap <Leader>ss :SessionSave<CR>
+nnoremap <Leader>sl :SessionList<CR>
+nnoremap <Leader>sc :SessionClose<CR>
 
